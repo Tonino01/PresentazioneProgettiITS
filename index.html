@@ -3,7 +3,7 @@
     <head>
 
         <title>Tornio</title>
-        <link rel="stylesheet" type="text/css" href="stile.css">
+        <link rel="stylesheet" type="text/css" href="general.css">
         <link rel = "icon" type=" immage/x-icon" href="https://img.icons8.com/external-lylac-kerismaker/32/external-Lathe-Machine-manufacture-lylac-kerismaker.png" >
 
     </head>
@@ -11,35 +11,16 @@
     
     <body>
         
-        <h1>TORNIO - Simulation</h1>
-        
-        <div class="container">
-            
-        
-            <label for="inputMateriale">seleziona il materiale:</label>
-            <select id="inputMateriale" name="input">
-                <option value="seleziona">Seleziona</option>
-                <option value="Legno">Legno</option>
-                <option value="alluminio">Alluminio</option>
-                <option value="ottone">Ottone</option>
-            </select>
+        <h1>Benvenuti a tutti</h1>
 
-            <label for="punta">seleziona la punta:</label>
-            <div id = "punta"></div>
+        <button onclick="Presentazione()" id = "button0" class = "button">Presentazione</button>
+        <button onclick="Tornio()" id = "button1" class = "button">Tornio</button>
+        <button onclick="Login()" id = "button2" class = "button">Login</button>
+        <button onclick="SitoITS()" id = "button3" class = "button">SitoITS</button>
+        <button onclick="TabellaCorsi()" id = "button4" class = "button">Tabella Corsi</button>
+        <button onclick="Tris()" id = "button5" class = "button">Tris</button>
 
-            <label for="rpm">imposta i giri al minuto:</label>
-            <input type="range" id="rpm" name="rpm" min="50" max="3000" oninput="document.getElementById('rpmValue').textContent = this.value">
-            <span id="rpmValue">1500</span>
-
-            <label for="input3">inserici l'avanzamento (cm):</label>
-            <input type="text" id="input3" placeholder="avanzamento">
-            <button class = "start" onclick="start()">Start</button>
-
-
-        </div>
-
-
-        <script src = "script.js"></script>
+        <script src = "general.js"></script>
 
     </body>
 </html>
