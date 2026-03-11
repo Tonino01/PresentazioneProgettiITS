@@ -153,13 +153,17 @@ function selectPuntaImg(indicePunta, puntaImg) {
 
 
 
+let rpm = 0;
+
 
 
 function start() {
     const rpmValue = document.getElementById("rpm").value;
     const avanzamentoValue = document.getElementById("input3").value;
+    rpm = document.getElementById("rpm").value;
 
-    location.href = 'home/home.html';
+    // passa il valore correttamente come query string "rpm"
+    location.href = 'home/home.html?rpm=' + encodeURIComponent(rpm);
+
 
 }
-
