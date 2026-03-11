@@ -1,0 +1,79 @@
+
+
+body{
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1b;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #007bff;
+
+
+}
+
+h1{
+    text-align: center;
+    font-size: 72px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #2d2d2e;
+    
+    padding: 5%;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #2d2d2e;
+}
+
+.container label{
+    font-size: 25px;
+}
+
+.container input{
+    width: 100%;
+    padding: 2%;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+}
+#punta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+}
+
+#punta img ,button{
+    width: 60%;
+    height: 70px;
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.start{
+    background-color: #007bff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.start:hover{
+    background-color: #0056b3;
+}
+
+select{
+    width: 100%;
+    padding: 2%;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+}

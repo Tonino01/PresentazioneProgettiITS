@@ -1,0 +1,142 @@
+const punte = [
+    {
+        
+        nome: "Punta 1",
+        materiale: "legno",
+        src: "immagini/puntaLegno.png",
+        velocita: 1000,
+    },
+    {
+        
+        nome: "Punta 2",
+        materiale: "legno",
+        src: "immagini/puntaLegno2.png",
+        velocita: 1500,
+
+    },
+    {
+        nome: "Punta 3",
+        materiale: "alluminio",
+        src: "immagini/puntaAlluminio.png",
+        velocita: 2000,
+    },
+    {   
+        nome: "Punta 4",
+        materiale: "ottone",
+        src: "immagini/puntaOttone.png",
+        velocita: 3000,
+    },
+
+
+];
+
+// Variabile globale per salvare la punta selezionata
+let puntaSelezionata = null;
+
+const punteContainer = document.getElementById("punta");
+let selectPunta = document.getElementById("inputMateriale");
+
+selectPunta.addEventListener("change", function() {
+    
+    punteContainer.innerHTML = '';
+
+    switch (selectPunta.value) {
+    case "Legno":
+        // append a button for every wooden tip
+        for (let i = 0; i < punte.length; i++) {
+            if (punte[i].materiale.toLowerCase() === "legno") {
+
+                const puntaButton = document.createElement("button");
+                const puntaImg = document.createElement("img");
+
+                puntaImg.src = punte[i].src;
+
+                // Salva l'indice della punta per il click handler
+                puntaButton.addEventListener("click", function() {
+                    selectPuntaImg(i, puntaImg);
+                });
+
+                puntaButton.appendChild(puntaImg);
+                punteContainer.appendChild(puntaButton);
+            }
+        }
+
+        break;
+
+    case "alluminio":
+        // append button for aluminum tip
+        for (let i = 0; i < punte.length; i++) {
+            if (punte[i].materiale.toLowerCase() === "alluminio") {
+
+                const puntaButton = document.createElement("button");
+                const puntaImg = document.createElement("img");
+
+                puntaImg.src = punte[i].src;
+
+                puntaButton.addEventListener("click", function() {
+                    selectPuntaImg(i, puntaImg);
+                });
+
+                puntaButton.appendChild(puntaImg);
+                punteContainer.appendChild(puntaButton);
+            }
+        }
+
+        break;
+
+    case "ottone":
+        // append button for brass tip
+        for (let i = 0; i < punte.length; i++) {
+            if (punte[i].materiale.toLowerCase() === "ottone") {
+                const puntaButton = document.createElement("button");
+                const puntaImg = document.createElement("img");
+
+                puntaImg.src = punte[i].src;
+
+                puntaButton.addEventListener("click", function() {
+                    selectPuntaImg(i, puntaImg);
+                });
+                puntaButton.appendChild(puntaImg);
+                punteContainer.appendChild(puntaButton);
+            }
+        }
+
+        break;
+
+    default:
+        break;
+    }
+});
+
+
+function selectPuntaImg(indicePunta, puntaImg) {
+    // Salva la punta selezionata nella variabile globale
+    puntaSelezionata = punte[indicePunta];
+    
+    // Rimuovi il border da tutte le immagini
+    const allImages = punteContainer.querySelectorAll("img");
+    allImages.forEach(img => {
+        img.style.border = "none";
+    });
+    
+    // Aggiungi il border all'immagine selezionata
+    puntaImg.style.border = "4px solid blue";
+    
+    // Log per debuggare (opzionale)
+    console.log("Punta selezionata:", puntaSelezionata);
+}
+
+
+
+
+
+
+
+function start() {
+    const rpmValue = document.getElementById("rpm").value;
+    const avanzamentoValue = document.getElementById("input3").value;
+
+    location.href = 'home/home.html';
+
+}
+
