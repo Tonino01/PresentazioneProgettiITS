@@ -22,26 +22,45 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    width: 80%;
+    height: 50vh;
     gap: 20px;
     background-color: #2d2d2e;
-    
     padding: 5%;
     border-radius: 20px;
     box-shadow: 0 0 20px #2d2d2e;
 }
 
-.container label{
-    font-size: 25px;
+
+
+
+
+.inserimentoDati{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 10%;
+    margin-left: 10%;
+    gap: 10px;
+    width: 70%;
 }
 
-.container input{
+.inserimentoDati label{
+    font-size: 22px;
+    width: 100%;
+    margin-bottom: 2px;
+
+}
+
+.inserimentoDati input{
     width: 100%;
     padding: 2%;
-    font-size: 17px;
     border: none;
     border-radius: 5px;
 }
+
 #punta{
     display: flex;
     justify-content: center;
@@ -49,21 +68,35 @@ h1{
     flex-direction: row;
     gap: 20px;
     width: 100%;
+    margin-bottom: 10%;
 }
 
-#punta img ,button{
-    width: 60%;
+#punta img{
+    width: 70px;
     height: 70px;
+    border-radius: 10px;
+    
+}
+
+#punta button{
+
     border: none;
     background-color: transparent;
     border-radius: 5px;
     cursor: pointer;
+    
+
 }
 
 .start{
     background-color: #007bff;
+    border:none;
+    width: 50%;
+    padding: 20px;
+    border-radius: 15px;
     font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .start:hover{
@@ -73,7 +106,7 @@ h1{
 select{
     width: 100%;
     padding: 2%;
-    font-size: 17px;
+    
     border: none;
     border-radius: 5px;
 }
