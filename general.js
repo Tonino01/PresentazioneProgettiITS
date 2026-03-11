@@ -20,3 +20,7 @@ function Tris() {
 function Presentazione() {
     window.location.href = "Presentazione/index.html";
 }
+
+function toDo() {
+    window.location.href = "ToDo/index.html";
+}
