@@ -30,11 +30,34 @@ const punte = [
 
 ];
 
+
+
 // Variabile globale per salvare la punta selezionata
 let puntaSelezionata = null;
 
 const punteContainer = document.getElementById("punta");
 let selectPunta = document.getElementById("inputMateriale");
+
+
+
+
+//mostra le punte disponibili al caricamento della pagina
+for (let i = 0; i < punte.length; i++) {
+    
+
+    const puntaButton = document.createElement("button");
+    const puntaImg = document.createElement("img");
+
+    puntaImg.src = punte[i].src;
+
+        
+
+    puntaButton.appendChild(puntaImg);
+    punteContainer.appendChild(puntaButton);
+    
+}
+    
+
 
 selectPunta.addEventListener("change", function() {
     
@@ -42,7 +65,7 @@ selectPunta.addEventListener("change", function() {
 
     switch (selectPunta.value) {
     case "Legno":
-        // append a button for every wooden tip
+        // aggiunge un bottone per ogni punta di legno
         for (let i = 0; i < punte.length; i++) {
             if (punte[i].materiale.toLowerCase() === "legno") {
 
@@ -64,7 +87,7 @@ selectPunta.addEventListener("change", function() {
         break;
 
     case "alluminio":
-        // append button for aluminum tip
+        // aggiunge un bottone per ogni punta di alluminio
         for (let i = 0; i < punte.length; i++) {
             if (punte[i].materiale.toLowerCase() === "alluminio") {
 
@@ -85,7 +108,7 @@ selectPunta.addEventListener("change", function() {
         break;
 
     case "ottone":
-        // append button for brass tip
+        // aggiunge un bottone per ogni punta di ottone
         for (let i = 0; i < punte.length; i++) {
             if (punte[i].materiale.toLowerCase() === "ottone") {
                 const puntaButton = document.createElement("button");

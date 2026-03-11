@@ -15,25 +15,40 @@
         
         <div class="container">
             
-        
-            <label for="inputMateriale">seleziona il materiale:</label>
-            <select id="inputMateriale" name="input">
-                <option value="seleziona">Seleziona</option>
-                <option value="Legno">Legno</option>
-                <option value="alluminio">Alluminio</option>
-                <option value="ottone">Ottone</option>
-            </select>
 
-            <label for="punta">seleziona la punta:</label>
-            <div id = "punta"></div>
+            <div class = "inserimentoDati">
 
-            <label for="rpm">imposta i giri al minuto:</label>
-            <input type="range" id="rpm" name="rpm" min="50" max="3000" oninput="document.getElementById('rpmValue').textContent = this.value">
-            <span id="rpmValue">1500</span>
+                
 
-            <label for="input3">inserici l'avanzamento (cm):</label>
-            <input type="text" id="input3" placeholder="avanzamento">
-            <button class = "start" onclick="start()">Start</button>
+                <label for="inputMateriale">Seleziona il materiale:</label>
+                <select id="inputMateriale" name="input">
+                    <option value="seleziona">Seleziona</option>
+                    <option value="Legno">Legno</option>
+                    <option value="alluminio">Alluminio</option>
+                    <option value="ottone">Ottone</option>
+                </select>
+
+                <label for="rpm">Imposta i giri al minuto:</label>
+                <input type="range" id="rpm" name="rpm" min="50" max="3000" oninput="document.getElementById('rpmValue').textContent = this.value">
+                <span id="rpmValue">1500</span>
+
+                <label for="input3">Inserici l'avanzamento (mm):</label>
+                <input type="text" id="input3" placeholder="avanzamento">
+
+            </div>
+
+
+            <div class = "inserimentoDati">
+
+                <label for="punta">Seleziona la punta:</label>
+                <div id = "punta"></div>
+
+                <button class = "start" onclick="start()">Start</button>
+
+            </div>
+
+            
+            
 
 
         </div>
