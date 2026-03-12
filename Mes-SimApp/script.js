@@ -1,169 +1,70 @@
+// Lista punte e materiali
 const punte = [
-    {
-        
-        nome: "Punta 1",
-        materiale: "legno",
-        src: "immagini/puntaLegno.png",
-        velocita: 1000,
-    },
-    {
-        
-        nome: "Punta 2",
-        materiale: "legno",
-        src: "immagini/puntaLegno2.png",
-        velocita: 1500,
-
-    },
-    {
-        nome: "Punta 3",
-        materiale: "alluminio",
-        src: "immagini/puntaAlluminio.png",
-        velocita: 2000,
-    },
-    {   
-        nome: "Punta 4",
-        materiale: "ottone",
-        src: "immagini/puntaOttone.png",
-        velocita: 3000,
-    },
-
-
+    { nome: "Punta 1", materiale: "legno", src: "immagini/puntaLegno.png", velocita: 1000 },
+    { nome: "Punta 2", materiale: "legno", src: "immagini/puntaLegno2.png", velocita: 1500 },
+    { nome: "Punta 3", materiale: "alluminio", src: "immagini/puntaAlluminio.png", velocita: 2000 },
+    { nome: "Punta 4", materiale: "ottone", src: "immagini/puntaOttone.png", velocita: 3000 },
 ];
 
-
-
-// Variabile globale per salvare la punta selezionata
+// Variabile globale punta selezionata
 let puntaSelezionata = null;
 
 const punteContainer = document.getElementById("punta");
-let selectPunta = document.getElementById("inputMateriale");
+const selectPunta = document.getElementById("inputMateriale");
 
-
-
-
-//mostra le punte disponibili al caricamento della pagina
-for (let i = 0; i < punte.length; i++) {
-    
-
-    const puntaButton = document.createElement("button");
-    const puntaImg = document.createElement("img");
-
-    puntaImg.src = punte[i].src;
-
-        
-
-    puntaButton.appendChild(puntaImg);
-    punteContainer.appendChild(puntaButton);
-    
-}
-    
-
-
-selectPunta.addEventListener("change", function() {
-    
+// Mostra le punte disponibili inizialmente
+function mostraPunte(materiale = null){
     punteContainer.innerHTML = '';
+    punte.forEach((p, i) => {
+        if(materiale === null || p.materiale.toLowerCase() === materiale.toLowerCase()){
+            const btn = document.createElement("button");
+            const img = document.createElement("img");
+            img.src = p.src;
 
-    switch (selectPunta.value) {
-    case "Legno":
-        // aggiunge un bottone per ogni punta di legno
-        for (let i = 0; i < punte.length; i++) {
-            if (punte[i].materiale.toLowerCase() === "legno") {
+            btn.addEventListener("click", () => {
+                selectPuntaImg(i, img);
+            });
 
-                const puntaButton = document.createElement("button");
-                const puntaImg = document.createElement("img");
-
-                puntaImg.src = punte[i].src;
-
-                // Salva l'indice della punta per il click handler
-                puntaButton.addEventListener("click", function() {
-                    selectPuntaImg(i, puntaImg);
-                });
-
-                puntaButton.appendChild(puntaImg);
-                punteContainer.appendChild(puntaButton);
-            }
+            btn.appendChild(img);
+            punteContainer.appendChild(btn);
         }
+    });
+}
 
-        break;
+// Inizializza tutte le punte
+mostraPunte();
 
-    case "alluminio":
-        // aggiunge un bottone per ogni punta di alluminio
-        for (let i = 0; i < punte.length; i++) {
-            if (punte[i].materiale.toLowerCase() === "alluminio") {
-
-                const puntaButton = document.createElement("button");
-                const puntaImg = document.createElement("img");
-
-                puntaImg.src = punte[i].src;
-
-                puntaButton.addEventListener("click", function() {
-                    selectPuntaImg(i, puntaImg);
-                });
-
-                puntaButton.appendChild(puntaImg);
-                punteContainer.appendChild(puntaButton);
-            }
-        }
-
-        break;
-
-    case "ottone":
-        // aggiunge un bottone per ogni punta di ottone
-        for (let i = 0; i < punte.length; i++) {
-            if (punte[i].materiale.toLowerCase() === "ottone") {
-                const puntaButton = document.createElement("button");
-                const puntaImg = document.createElement("img");
-
-                puntaImg.src = punte[i].src;
-
-                puntaButton.addEventListener("click", function() {
-                    selectPuntaImg(i, puntaImg);
-                });
-                puntaButton.appendChild(puntaImg);
-                punteContainer.appendChild(puntaButton);
-            }
-        }
-
-        break;
-
-    default:
-        break;
-    }
+// Cambia punte quando cambia materiale
+selectPunta.addEventListener("change", function() {
+    const mat = selectPunta.value.toLowerCase();
+    mostraPunte(mat);
 });
 
+// Seleziona la punta
+function selectPuntaImg(indice, img){
+    puntaSelezionata = punte[indice];
 
-function selectPuntaImg(indicePunta, puntaImg) {
-    // Salva la punta selezionata nella variabile globale
-    puntaSelezionata = punte[indicePunta];
-    
-    // Rimuovi il border da tutte le immagini
-    const allImages = punteContainer.querySelectorAll("img");
-    allImages.forEach(img => {
-        img.style.border = "none";
-    });
-    
-    // Aggiungi il border all'immagine selezionata
-    puntaImg.style.border = "4px solid blue";
-    
-    // Log per debuggare (opzionale)
+    // Rimuovi border da tutte le immagini
+    punteContainer.querySelectorAll("img").forEach(i => i.style.border = "none");
+
+    // Evidenzia la punta selezionata
+    img.style.border = "4px solid red";
+
     console.log("Punta selezionata:", puntaSelezionata);
 }
 
-
-
-
-
-let rpm = 0;
-
-
-
+// Start simulazione
 function start() {
-    const rpmValue = document.getElementById("rpm").value;
-    const avanzamentoValue = document.getElementById("input3").value;
-    rpm = document.getElementById("rpm").value;
+    const rpm = document.getElementById("rpm").value;
+    const feed = document.getElementById("input3").value;
 
-    // passa il valore correttamente come query string "rpm"
-    location.href = 'home/home.html?rpm=' + encodeURIComponent(rpm);
+    if(!puntaSelezionata){
+        alert("Seleziona una punta prima di avviare la simulazione!");
+        return;
+    }
 
+    // Passa rpm, avanzamento e materiale tramite query string
+    const url = `home/home.html?rpm=${encodeURIComponent(rpm)}&feed=${encodeURIComponent(feed)}&materiale=${encodeURIComponent(puntaSelezionata.materiale)}`;
 
+    location.href = url;
 }

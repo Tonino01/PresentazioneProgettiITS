@@ -10,50 +10,60 @@
 
     <h1>TORNIO - Simulation</h1>
 
-    <div class="dashboard">
+    <div class="main-content">
 
-        <div class="mes-card">
-        <h2>Monitoraggio</h2>
-        <hr style="border: 0.5px solid #444; margin-bottom: 20px;">
+        <div class="dashboard">
 
-        <div class="data-grid">
-            <div class="data-item">
-                <span class="label">Velocità (RPM)</span>
-                <span id="rpmDisplay" class="value">0</span>
-            </div>
-            <div class="data-item">
-                <span class="label">Temperatura (°C)</span>
-                <span id="tempDisplay" class="value">22.0</span>
-            </div>
-        </div>
+            
 
-        <div class="control-section">
-            <div class="control-group">
-                
-                
-                <div class="input-field">
-                    <label class="label">Avanzamento (mm/giro)</label>
-                    <input type="number" id="feedInput" min="0" max="2" step="0.05" value="0.1">
+            <div class="mes-card">
+                <h2>Monitoraggio</h2>
+                <hr style="border: 0.5px solid #444; margin-bottom: 20px;">
+
+                <div class="data-grid">
+                    <div class="data-item">
+                        <span class="label">Velocità (RPM)</span>
+                        <span id="rpmDisplay" class="value">0</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Temperatura (°C)</span>
+                        <span id="tempDisplay" class="value">22.0</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Materiale:</span>
+                        <span id="materialeDisplay" class="value">—</span>
+                    </div>
                 </div>
+
+                <div class="control-section">
+                    <div class="control-group">
+                        
+                        
+                        <div class="input-field">
+                            <label class="label">Avanzamento (mm/giro)</label>
+                            <input type="number" id="feedInput" min="0" max="2" step="0.05" value="0.1">
+                        </div>
+                    </div>
+
+                    <label class="label">Regolazione Giri Mandrino</label>
+                    <input class = "barra" type="range" id="rpmSlider" min="0" max="8000" value="0">
+                </div>
+
+                
+
+                <div id="alertBox"></div>
+
+                <button onclick="emergencyStop()">E-STOP (EMERGENZA)</button>
+                
+                <button onclick="endSimulation()">FINISCI SIMULAZIONE</button>
             </div>
-
-            <label class="label">Regolazione Giri Mandrino</label>
-            <input type="range" id="rpmSlider" min="0" max="8000" value="0">
         </div>
 
-        <div id="toolSuggestion" class="info-box">
-            Punta consigliata: <strong>In attesa di dati...</strong>
-        </div>
-
-        <div id="alertBox">⚠️ ALLARME: TEMPERATURA CRITICA!</div>
-
-        <button onclick="emergencyStop()">E-STOP (EMERGENZA)</button>
-        
-        <button onclick="endSimulation()">FINISCI SIMULAZIONE</button>
+    <canvas id="lathe" width="500" height="300"></canvas>
     </div>
 
 
-    </div>
+    
     
     <script src="home.js"></script>
 </body>
