@@ -57,6 +57,7 @@ canvas#lathe {
             border-radius: 10px;
             border-top: 4px solid #c62828; /* red accent */
             box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+            
         }
 
         /* make data items more compact */
